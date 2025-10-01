@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soft Touch Nails - Booking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+    body { background: #fffbea; color: #111; }
+    a { text-decoration: none; color: inherit; }
+
+    .site-wrapper { margin: 1rem; padding: 2rem; background: #fffdf5; border: 6px solid #d4af37; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: linear-gradient(90deg, #000, #333); color: #d4af37; position: sticky; top: 0; z-index: 100; font-weight: bold; border-radius: 8px; }
+    nav .logo img { height: 50px; border: 2px solid #d4af37; border-radius: 50%; padding: 2px; background: #fff; }
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav ul li { cursor: pointer; transition: 0.3s; color: #d4af37; }
+    nav ul li:hover { color: #fff; }
+
+    .hero { text-align: center; padding: 5rem 2rem; background: linear-gradient(135deg, #fff0f5, #fffdf5); border-radius: 12px; border: 2px solid #d4af37; margin-top: 2rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: #111; }
+    .hero p { font-size: 1.2rem; color: #555; }
+
+    section { padding: 3rem 2rem; margin-top: 2rem; border-radius: 12px; }
+    section.light { background: linear-gradient(135deg, #fff0f5, #fffdf5); color: #111; border: 1px solid #eee; }
+    section h2 { display: block; margin: 0 auto 2rem auto; font-size: 2.5rem; color: #111; border-bottom: 2px solid #d4af37; padding-bottom: 5px; text-align: center; }
+
+    .gallery { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center; }
+    .gallery img { width: 200px; height: 150px; object-fit: cover; border-radius: 10px; border: 2px solid #d4af37; transition: transform 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
+
+    .services { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: stretch; }
+    .service-card { background: #fffdf5; padding: 2rem 1.5rem; border-radius: 20px; border: 2px solid #f3d19c; width: 280px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; transition: 0.4s; box-shadow: 0 6px 20px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.2); border-color: #d4af37; background: linear-gradient(135deg, #ffe8f0, #fffdf5); }
+    .service-card::after { content: "✨"; position: absolute; top: -20px; left: -20px; font-size: 1.5rem; opacity: 0; animation: sparkle 2s infinite; }
+    @keyframes sparkle { 0%,100%{transform:translate(0,0) rotate(0deg);opacity:0;} 10%{transform:translate(20px,10px) rotate(15deg);opacity:0.2;} 20%{transform:translate(40px,0px) rotate(-10deg);opacity:0.4;} 30%{transform:translate(60px,20px) rotate(10deg);opacity:0.2;} 40%{transform:translate(80px,0px) rotate(0deg);opacity:0;} }
+
+    .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1rem; color: #d4af37; text-align: center; }
+    .service-card ul { list-style: none; padding: 0; margin: 0; width: 100%; flex-grow: 1; }
+    .service-card li { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2); color: #333; font-size: 1rem; }
+    .service-card li:last-child { border-bottom: none; }
+    .service-card li span:first-child { flex: 1; text-align: left; }
+    .service-card li span:last-child { font-weight: bold; color: #d4af37; }
+
+    form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; background: linear-gradient(135deg, #fff0f5, #fffdf5); padding: 2rem; border-radius: 15px; border: 2px solid #d4af37; box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+    input, textarea, select { padding: 0.75rem 1rem; border-radius: 10px; border: 2px solid #d4af37; background: #fff; color: #111; font-size: 1rem; transition: 0.3s; }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212,175,55,0.3); }
+    button { padding: 0.75rem; border-radius: 10px; border: none; background: #d4af37; color: #000; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1.1rem; }
+    button:hover { background: #000; color: #d4af37; }
+
+    footer { background: linear-gradient(90deg, #000, #222); color: #d4af37; text-align: center; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; border-radius: 8px; font-weight: bold; }
+    footer a { color: #d4af37; margin: 0 0.5rem; transition: 0.3s; }
+    footer a:hover { color: #fff; }
+
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+
+    <nav>
+      <div class="logo"><img src="assets/logo.jpg" alt="Logo"></div>
+      <ul>
+        <li onclick="document.getElementById('our-work').scrollIntoView()">Our Work</li>
+        <li onclick="document.getElementById('services').scrollIntoView()">Our Services</li>
+        <li onclick="document.getElementById('appointment').scrollIntoView()">Book Appointment</li>
+        <li onclick="document.getElementById('contact').scrollIntoView()">Contact Us</li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <h1>Welcome to Soft Touch Nails</h1>
+      <p>Luxury nail & beauty services at affordable prices</p>
+    </div>
+
+    <section id="our-work" class="light">
+      <h2>Our Work</h2>
+      <div class="gallery">
+        <img src="assets/nail1.jpg" alt="Work 1">
+        <img src="assets/nail2.jpg" alt="Work 2">
+        <img src="assets/nail3.jpg" alt="Work 3">
+        <img src="assets/nail4.jpg" alt="Work 4">
+        <img src="assets/nail5.jpg" alt="Work 5">
+        <img src="assets/nail6.jpg" alt="Work 6">
+        <img src="assets/nail8.jpg" alt="Work 8">
+      </div>
+    </section>
+
+    <section id="services" class="light">
+      <h2>Our Services</h2>
+      <div class="services">
+        <!-- service cards here, same as before -->
+      </div>
+    </section>
+
+    <!-- Modern Booking Form -->
+    <section id="appointment" class="light">
+      <h2>Book Appointment</h2>
+      <form id="booking-form">
+        <input type="text" placeholder="Full Name" id="name" required>
+        <input type="tel" placeholder="Phone Number" id="phone" required>
+        <select id="service" required>
+          <option value="">Pick a Service</option>
+          <option value="Plain Manicure - R30">Plain Manicure - R30</option>
+          <option value="Mini Manicure - R50">Mini Manicure - R50</option>
+          <option value="Full Manicure - R100">Full Manicure - R100</option>
+          <option value="Mini Pedicure - R50">Mini Pedicure - R50</option>
+          <option value="Full Pedicure - R110">Full Pedicure - R110</option>
+          <option value="Massage - R50">Massage - R50</option>
+        </select>
+        <input type="date" id="date" required>
+        <input type="time" id="time" min="09:00" max="18:00" step="3600" required>
+        <textarea placeholder="Describe what you would like (color, shape, details)" id="desc" rows="3"></textarea>
+        <div>Total: <span id="total">R0</span></div>
+        <button type="submit">Book via WhatsApp</button>
+      </form>
+    </section>
+
+    <footer id="contact">
+      <div>Contact Us</div>
+      <div><span>Email: info@example.com</span> | <span>Phone: +27 82 405 4301</span></div>
+      <div><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram" style="font-size:1.5rem;"></i></a></div>
+    </footer>
+
+  </div>
+
+  <script>
+    const serviceSelect = document.getElementById('service');
+    const totalDisplay = document.getElementById('total');
+    const prices = { "Plain Manicure - R30":30, "Mini Manicure - R50":50, "Full Manicure - R100":100, "Mini Pedicure - R50":50, "Full Pedicure - R110":110, "Massage - R50":50 };
+
+    serviceSelect.addEventListener('change', () => {
+      totalDisplay.textContent = "R" + (prices[serviceSelect.value] || 0);
+    });
+
+    document.getElementById('booking-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const service = serviceSelect.value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const desc = document.getElementById('desc').value;
+      const total = totalDisplay.textContent;
+
+      const message = `Booking Request:%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADate: ${date}%0ATime: ${time}%0ADetails: ${desc}%0ATotal: ${total}`;
+      const whatsappNumber = "+27824054301"; // your WhatsApp number
+      const url = `https://wa.me/${whatsappNumber.replace(/\D/g,'')}?text=${message}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
